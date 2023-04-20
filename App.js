@@ -1,42 +1,118 @@
+import React from 'react';
+import { StyleSheet, View, Text, Button } from 'react-native';
+import { ListItem } from 'react-native-elements';
+import * as Nav from "react-navigation";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import * as Location from "expo-location";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+
+//export { HomeScreen, PracticeListScreen };
+
 export default function App() {
+  /*
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!!!</Text>
       <StatusBar style="auto" />
     </View>
   );
+  */
+  const list = [
+      {
+        title: '초급 요가',
+        icon: 'local-florist',
+        navigateTo: 'PracticeList',
+      },
+      {
+        title: '중급 요가',
+        icon: 'local-florist',
+        navigateTo: 'PracticeList',
+      },
+      {
+        title: '고급 요가',
+        icon: 'local-florist',
+        navigateTo: 'PracticeList',
+      },
+    ];
+
+    return(
+    <View style={styles.container}>
+          <Text style={styles.title}>요가 연습을 시작하세요!</Text>
+          {list.map((item, i) => (
+            <ListItem
+              key={i}
+              title={item.title}
+              leftIcon={{ name: item.icon }}
+              onPress={() => navigation.navigate(item.navigateTo)}
+            />
+          ))}
+    </View>
+
+    );
 }
+
+export function HomeScreen1() {
+    return (
+        <View>
+            <Button title="Deatil 열기" />
+        </View>
+    );
+}
+
+
+const HomeScreen = () => {
+  const list = [
+    {
+      title: '초급 요가',
+      icon: 'local-florist',
+      navigateTo: 'PracticeList',
+    },
+    {
+      title: '중급 요가',
+      icon: 'local-florist',
+      navigateTo: 'PracticeList',
+    },
+    {
+      title: '고급 요가',
+      icon: 'local-florist',
+      navigateTo: 'PracticeList',
+    },
+  ];
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>요가 연습을 시작하세요!</Text>
+      {list.map((item, i) => (
+        <ListItem
+          key={i}
+          title={item.title}
+          leftIcon={{ name: item.icon }}
+          onPress={() => navigation.navigate(item.navigateTo)}
+        />
+      ))}
+    </View>
+  );
+};
+
+const PracticeListScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>연습 목록</Text>
+      <Text>여기서 연습 목록을 표시합니다.</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
 });
-
- const [isLoading, setIsLoading] = useState(true);
-
-  const getLocation = async () => {
-
-    try {
-
-      await Location.requestPermissionsAsync();
-
-      const {
-        coords: { latitude, longitude },
-      } = await Location.getCurrentPositionAsync();
-
-      setIsLoading(false);
-
-    } catch (e) {
-      Alert.alert("위치정보를 가져올 수 없습니다.");
-    }
-
-  };
