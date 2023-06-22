@@ -1,13 +1,13 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 
-function Main() {
+function Main({navigation}) {
   return (
     <View>
-      <Text>start!</Text>
-      <Button 
-        title="go to main" 
-        onPress={() => navigation.navigate('Main')}
+      <Text>Main.js</Text>
+      <Button
+        title="go to start!"
+        onPress={() => navigation.navigate('Start')}
       />
     </View>
   );
