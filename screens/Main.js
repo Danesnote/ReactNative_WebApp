@@ -4,11 +4,12 @@ import { View, Text, Button } from "react-native";
 function Main({navigation}) {
   return (
     <View>
-      <Text>Main.js</Text>
+      <Text>로그인</Text>
       <Button
-        title="go to start!"
-        onPress={() => navigation.navigate('Start')}
+        title="로그인"
+        onPress={() => navigation.navigate('Login')}
       />
+      <Text>메인화면 내용</Text>
     </View>
   );
 }

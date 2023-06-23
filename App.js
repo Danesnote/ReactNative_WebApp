@@ -10,6 +10,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Main from "./screens/Main.js";
 import Start from "./screens/Start.js";
+import Login from "./screens/Login.js";
+import Tip from "./screens/Tip.js";
+import Mypage from "./screens/Mypage.js";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,28 +26,28 @@ function App() {
                       let iconName;
                       if (route.name === '메인') {
                         iconName = focused
-                          ? require('./assets/favicon.png')
-                          : require('./assets/favicon.png');
+                          ? require('./assets/tantra.png')
+                          : require('./assets/tantra.png');
                       } else if (route.name === '예약') {
                         iconName = focused
-                          ? require('./assets/favicon.png')
-                          : require('./assets/favicon.png');
+                          ? require('./assets/schedule.png')
+                          : require('./assets/schedule.png');
                       } else if (route.name === '공란') {
                         iconName = focused
-                          ? require('./assets/favicon.png')
-                          : require('./assets/favicon.png');
+                          ? require('./assets/hot-yoga.png')
+                          : require('./assets/hot-yoga.png');
                       } else if (route.name === '팁') {
                         iconName = focused
-                          ? require('./assets/favicon.png')
-                          : require('./assets/favicon.png');
+                          ? require('./assets/online.png')
+                          : require('./assets/online.png');
                       } else if (route.name === '마이페이지') {
                         iconName = focused
-                          ? require('./assets/favicon.png')
-                          : require('./assets/favicon.png');
+                          ? require('./assets/yoga-apps.png')
+                          : require('./assets/yoga-apps.png');
                       }
 
                       return (
-                        <Image source={iconName} style={{width: 25, height: 25}} />
+                        <Image source={iconName} style={{width: 45, height: 30}} />
                       );
                     },
                   })}>
